@@ -1,0 +1,59 @@
+html, body{
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+}
+.head_class{
+    padding-top: 20px;
+    text-align: center;
+}
+/* .head_class a{
+    background-color: Transparent;
+} */
+
+.btn-pink-moon{
+    background-color: Transparent;
+    border: 1px solid #f43b47;
+    color: #fff;
+}
+
+.btn-pink-moon:hover {
+    /* background: #ec008c;  fallback for old browsers */
+    background: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+    background: -webkit-linear-gradient(to top, #f43b47 0%, #453a94 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #f43b47 0%, #453a94 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 1px solid #eee;
+}
+.btn-rounded {
+    border-radius: 5px;
+}
+
+.body_text{
+    padding-top: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    text-align: center;
+
+}
+.body_text h1{
+    font-size: 52px;
+    color: #fff;
+}
+
+
+.btn-fab {
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .body_text h1{
+        font-size: 32px;
+       
+    }
+
+}
