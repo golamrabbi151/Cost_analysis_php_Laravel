@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UserCost;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-         return view('home');
+         $id= Auth::user()->id;
+         $totalCost = UserCost::where('user_id','=',$id)->sum('cost');
+         $totalIncome = UserCost::where('user_id','=',$id)->sum('income');
+         $balence = $totalIncome - $totalCost;
+     
+    
+      
+        return view('home',compact('totalCost','totalIncome','balence'));
     }
     public function text(){
         return view('user.index');

@@ -9,6 +9,8 @@
             @if(Route::has('login'))
                 @auth
                  <button class="btn btn-pink-moon btn-rounded"> <a style="color: #fff" href="{{ url('/home') }}">Home</a></button>
+                 <button class=" btn btn-pink-moon btn-rounded"><a style="color: #fff" href="{{url('profile')}}">Profile</a></button>
+
                 @else         
                 <button class="btn btn-pink-moon btn-rounded"><a style="color: #fff" href="{{ route('login') }}">SignIn</a></button> <button class=" btn btn-pink-moon btn-rounded"><a style="color: #fff" href="{{ route('register') }}">SignUp</a></button>
                 {{--  @endif --}}
@@ -23,8 +25,11 @@
         <div class="row " style=" text-align: center; padding-top: 65px;">
             <div class="col-md-4  .col-xl-4" > </div>
             <div class="col-md-4  .col-xl-4" style=" text-align:center;">
-                    <button class="btn btn-pink-moon btn-fab">Let's Start</button>
-               <!-- hello there -->
+                {{-- @if(Route::has('login'))
+                @auth --}}
+                   <a href="{{Route::has('login')?url('/home'):url('login') }}"><button class="btn btn-pink-moon btn-fab">Let's Start</button></a> 
+                {{-- @endauth
+                @endif --}}
             </div>
             <div class="col-md-4 ">  </div>
         </div>

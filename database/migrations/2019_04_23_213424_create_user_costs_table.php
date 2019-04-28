@@ -16,7 +16,9 @@ class CreateUserCostsTable extends Migration
         Schema::create('user_costs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('cost');
+            $table->integer('income')->default('0');
+            $table->string('costName');
+            $table->integer('cost');
             $table->timestamps();
         });
     }

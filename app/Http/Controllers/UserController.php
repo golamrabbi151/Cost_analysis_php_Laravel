@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\UserCost;
+// use App\Http\Controllers\UserRequest;
 
 class UserController extends Controller
 {
@@ -12,8 +15,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // return view('user.index');
+    { // $test = "test work";
+
+        // return view('home',compact('test'));
+       
     }
 
     /**
@@ -23,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         
+        $data  = $request->except('_token');
+        $data['user_id']=Auth::user()->id;
+        UserCost::create($data);
+
+        return redirect('home');
+
+
     }
 
     /**
