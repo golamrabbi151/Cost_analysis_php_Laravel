@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('text','HomeController@text');
 
  Route::resource('/index','UserController');
+ Route::get('/profile','UserController@profile');
+ Route::get('showdetails','UserController@showdetails');
 // Route::post("user","UserCostController@store");

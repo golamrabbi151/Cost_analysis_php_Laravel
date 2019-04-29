@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\UserCost;
+use App\User;
 // use App\Http\Controllers\UserRequest;
 
 class UserController extends Controller
@@ -48,6 +49,21 @@ class UserController extends Controller
 
 
     }
+
+// profile 
+    public function profile(){
+            $id = Auth::user()->id;
+            $data = UserCost::where('user_id','=',$id)->paginate(1);
+            $users = User::all();
+            return view("users/profile",compact('data','users'));
+    }
+    public function showdetails(){
+     //    $id = Auth::user()->id;
+     // $data = UserCost::where('user_id','=',$id)->paginate(30);
+        // return view('users.show_details',compact('data'));
+    }
+
+
 
     /**
      * Display the specified resource.
