@@ -20,11 +20,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    @include('layouts.header')
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <div id="">
+        {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel"> --}}
+            <nav class="navbar navbar-expand-md navbar-light ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -57,9 +59,9 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="background: linear-gradient(to top, #f43b47 0%, #453a94 100%)">
                                     <a class="dropdown-item" href="{{ url('profile') }}" > Profile</a>
-                                     <a class="dropdown-item" href="{{ url('showdetails') }}" > Show Details</a>
+                                     <a class="dropdown-item" href="{{ url('home') }}" > Add cost</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -78,8 +80,21 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+<style >
+    .my_content{
+            height: 503px; margin-top: 66px; color: white;
+    }
+    @media only screen and (max-width: 600px){
+        h2{
+            padding-top: 20px;
+        }
+        .my_content{
+            height: 750px; margin-top: 20px;
+    }
+    }
+    
+</style> 
+        <main class="py-4 my_content" >
             @yield('content')
         </main>
     </div>

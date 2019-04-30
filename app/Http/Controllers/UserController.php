@@ -53,9 +53,13 @@ class UserController extends Controller
 // profile 
     public function profile(){
             $id = Auth::user()->id;
-            $data = UserCost::where('user_id','=',$id)->paginate(1);
-            $users = User::all();
-            return view("users/profile",compact('data','users'));
+            $data = UserCost::where('user_id','=',$id)->paginate(4);
+            $users = User::all()->where('id','=',$id);
+
+             $totalCost = UserCost::where('user_id','=',$id)->sum('cost');
+             $totalIncome = UserCost::where('user_id','=',$id)->sum('income');
+             $balence = $totalIncome - $totalCost;
+            return view("users/profile",compact('data','users','totalCost','totalIncome','balence'));
     }
     public function showdetails(){
      //    $id = Auth::user()->id;

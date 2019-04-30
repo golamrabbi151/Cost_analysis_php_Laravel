@@ -1,5 +1,5 @@
 html, body{
-    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+    background: linear-gradient(to top, #f43b47 0%, #453a94 100%);
 }
 .head_class{
     padding-top: 20px;
